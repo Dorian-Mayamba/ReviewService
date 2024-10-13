@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: "reviewservice"
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/review_service
+    username: dorian
+    password: dorian01
+
+  flyway:
+    locations: classpath:/db/migration
+    schemas: review_service
+    baseline-on-migrate: true
+    enabled: true
+    user: dorian
+    password: dorian01
+  jpa:
+    hibernate:
+      ddl-auto: none
+

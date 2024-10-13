@@ -1,0 +1,24 @@
+version: '4'
+services:
+  webapp:
+    build: .
+    depends_on:
+      - postgres
+    ports:
+      - "8082:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/review_service
+      - SPRING_DATASOURCE_USERNAME=dorian
+      - SPRING_DATASOURCE_PASSWORD=dorian01
+  postgres:
+    image: postgres:17.0
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - "5433:5342"
+    environment:
+      - POSTGRES_USER=dorian
+      - POSTGRES_PASSWORD=dorian01
+      - POSTGRES_DB=review_service
+volumes:
+  postgres_data:
