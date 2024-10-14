@@ -9,11 +9,9 @@ spring:
 
   flyway:
     locations: classpath:/db/migration
-    schemas: review_service
+    schemas: public,review_service
     baseline-on-migrate: true
     enabled: true
-    user: dorian
-    password: dorian01
   jpa:
     hibernate:
       ddl-auto: none
